@@ -1,0 +1,42 @@
+---
+- name: get ServerIP from localhost
+  set_fact: endpoint="{{ hostvars[ 'localhost' ].private_ip }}"
+
+- name: Update Server IP on client
+  replace:
+     dest: /home/ubuntu/final_tests/tests/workload
+     regexp: 'url.prefix=.+'
+     replace: 'url.prefix="{{ endpoint }}/"'
+     #replace: 'url.prefix="hello/";'
+
+- name: Update Server IP on client
+  replace:
+     dest: /home/ubuntu/initial_tests/tests/workload
+     regexp: 'url.prefix=.+'
+     replace: 'url.prefix="{{ endpoint }}/"'
+     #replace: 'url.prefix="hello/";'
+
+- name: Update execution time for exeriment Run
+  replace:
+     dest: /home/ubuntu/initial_tests/tests/workload
+     regexp: 'maxexecutiontime=.+'
+     replace: 'maxexecutiontime=6'
+
+- name: Run initial Setup
+  shell: /home/ubuntu/initial_tests/tests/test
+
+- name: Update execution time for exeriment Run
+  replace:
+     dest: /home/ubuntu/final_tests/tests/workload
+     regexp: 'maxexecutiontime=.+'
+     replace: 'maxexecutiontime=6'
+
+- name: Update maximum operations per second
+  replace:
+     dest: /home/ubuntu/final_tests/tests/test
+     regexp: 'LIMIT=.+'
+     replace: 'LIMIT=100'
+  
+
+- name: Run Experiments
+  shell: /home/ubuntu/final_tests/tests/test

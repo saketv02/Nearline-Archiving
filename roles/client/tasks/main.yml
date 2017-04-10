@@ -1,0 +1,25 @@
+---  
+- name: launch ec2 instance  
+  tags: ec2client
+  local_action:  
+    module: ec2  
+    region: "{{ region }}"  
+    key_name: "{{ keyname }}"
+    instance_type: "{{ instance_type }}"    
+    image: "{{ image }}"  
+    wait: yes    
+    group: sg_archival  
+    instance_tags:  
+      Name: client-1  
+      class: client
+  register: ec2_client 
+
+- name: Add to host list
+  add_host:
+    name: "{{ ec2_client.instances[0].public_ip }}"
+    group: ec2_client
+
+- name: Debug
+  debug:
+    msg: ":{{ ec2_client.instances[0].public_ip }}:"
+

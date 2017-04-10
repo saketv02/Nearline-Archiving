@@ -1,0 +1,29 @@
+---  
+- hosts: localhost
+  connection: local  
+  gather_facts: no    
+  roles:
+    - create_security_group
+    - client
+    - server
+    #- database
+    - getEndpointRDS
+
+- name: another play
+  hosts: localhost
+  tasks:
+    - debug: msg=hello
+
+- hosts: ec2_server
+  remote_user: centos
+  become: yes
+  roles:
+    - startServer
+
+- hosts: ec2_client
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - startClient
+
+
