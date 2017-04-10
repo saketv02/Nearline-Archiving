@@ -5,5 +5,5 @@ region: us-west-2
 allowed_ip: 71.197.6.115/32
 instance_type: db.m1.small    
 security_groups: sg-1cdf1f67
-db_name: greekwiki-1
+db_name: greekwiki-300
 snapshot: greekwiki

@@ -17,3 +17,9 @@ auto_up_disable: true
 #false = Development, minor, and major updates are all disabled
 #minor = Minor updates are enabled, development, and major updates are disabled
 #core_update_level: true 
+
+max_page_cache: 300
+max_execution_time: 6
+max_ops: 100
+appendonly: "no"
+appendfsync: "no"

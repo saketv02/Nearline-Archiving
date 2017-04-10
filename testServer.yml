@@ -1,19 +1,19 @@
 ---  
-- hosts: localhost
-  connection: local
-  gather_facts: no    
-  roles:
-    - client
+#- hosts: localhost
+#  connection: local
+#  gather_facts: no    
+#  roles:
+#    - server
 
 - name: another play
   hosts: localhost
   tasks:
     - debug: msg=hello
-
+    
 - name: Start Client
   gather_facts: no
   user: ubuntu
-  hosts: ec2_client
+  hosts: 54.191.27.83
   become: yes
   roles:
     - startClient

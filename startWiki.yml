@@ -14,6 +14,9 @@
   tasks:
     - debug: msg=hello
 
+    - pause:
+        minutes: 5
+
 - hosts: ec2_server
   remote_user: centos
   become: yes
