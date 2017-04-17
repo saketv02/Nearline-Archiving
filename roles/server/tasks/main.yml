@@ -4,13 +4,15 @@
   local_action:  
     module: ec2  
     region: "{{ region }}"  
+    zone: "{{ zone }}"
     key_name: "{{ keyname }}"
+    monitoring: yes
     instance_type: "{{ instance_type }}"    
     image: "{{ image }}"  
     wait: yes    
     group: sg_archival  
     instance_tags:  
-      Name: server-1  
+      Name: server-{{ max_page_cache }}  
       class: server
   register: ec2
 

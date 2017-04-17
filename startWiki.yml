@@ -6,10 +6,10 @@
     - create_security_group
     - client
     - server
-    #- database
-    - getEndpointRDS
+    - database
+    #- getEndpointRDS
 
-- name: another play
+- name: Interval
   hosts: localhost
   tasks:
     - debug: msg=hello
@@ -28,5 +28,3 @@
   become: yes
   roles:
     - startClient
-
-

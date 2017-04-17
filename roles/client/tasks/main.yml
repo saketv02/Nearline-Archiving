@@ -3,14 +3,16 @@
   tags: ec2client
   local_action:  
     module: ec2  
-    region: "{{ region }}"  
+    region: "{{ region }}"
+    zone: "{{ zone }}"  
     key_name: "{{ keyname }}"
+    monitoring: yes
     instance_type: "{{ instance_type }}"    
     image: "{{ image }}"  
     wait: yes    
     group: sg_archival  
     instance_tags:  
-      Name: client-1  
+      Name: client-{{ max_page_cache }} 
       class: client
   register: ec2_client 
 

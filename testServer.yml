@@ -13,7 +13,7 @@
 - name: Start Client
   gather_facts: no
   user: ubuntu
-  hosts: 54.191.27.83
+  hosts: 54.245.178.184
   become: yes
   roles:
     - startClient

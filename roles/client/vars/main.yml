@@ -6,3 +6,4 @@ keyname: archival-client
 allowed_ip: 71.197.6.115/32
 instance_type: r4.xlarge     
 image: ami-988111f8
+zone: us-west-2b

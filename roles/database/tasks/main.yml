@@ -4,6 +4,7 @@
     command: restore
     instance_name: greekwiki-{{ max_page_cache }}
     region: "{{ region }}"
+    zone: "{{ zone }}"
     instance_type: "{{ instance_type }}"
     snapshot: "{{ snapshot }}"
     wait: yes

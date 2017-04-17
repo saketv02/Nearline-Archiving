@@ -18,8 +18,8 @@ auto_up_disable: true
 #minor = Minor updates are enabled, development, and major updates are disabled
 #core_update_level: true 
 
-max_page_cache: 300
-max_execution_time: 6
-max_ops: 100
-appendonly: "no"
+max_page_cache: 600
+max_execution_time: 600
+max_ops: 300
+appendonly: "yes"
 appendfsync: "no"
