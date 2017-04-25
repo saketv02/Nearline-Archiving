@@ -21,5 +21,5 @@ auto_up_disable: true
 max_page_cache: 600
 max_execution_time: 600
 max_ops: 300
-appendonly: "yes"
+appendonly: "no"
 appendfsync: "no"
